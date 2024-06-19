@@ -3,11 +3,15 @@
     "displayName": "Explorer Dodge List",
     "description": "Hide specified files and folders from the explorer view.",
     "version": "1.0.0",
+    "publisher": "norixus",
     "engines": {
         "vscode": "^1.90.0"
     },
     "icon": "icon.webp",
     "license": "MIT",
+    "repository": {
+        "url": "https://github.com/stm-a/explorer-dodge-list"
+    },
     "categories": [
         "Other"
     ],
