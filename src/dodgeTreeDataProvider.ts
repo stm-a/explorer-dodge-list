@@ -38,11 +38,20 @@ export class DodgeTreeDataProvider
     }
 
     async getTreeItem(element: vscode.Uri): Promise<vscode.TreeItem> {
+        const stats = await vscode.workspace.fs.stat(element)
         const treeItem = new vscode.TreeItem(element)
         treeItem.label = path.basename(element.fsPath)
         treeItem.resourceUri = element
 
-        const stats = await vscode.workspace.fs.stat(element)
+        treeItem.command = {
+            command: "vscode.open",
+            title: "Open File",
+            arguments: [element],
+        }
+
+        treeItem.contextValue =
+            stats.type === vscode.FileType.Directory ? "folder" : "file"
+
         treeItem.collapsibleState =
             stats.type === vscode.FileType.Directory
                 ? vscode.TreeItemCollapsibleState.Collapsed

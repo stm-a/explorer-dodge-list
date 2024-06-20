@@ -2,7 +2,7 @@
     "name": "explorer-dodge-list",
     "displayName": "Explorer Dodge List",
     "description": "Hide specified files and folders from the explorer view.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "norixus",
     "engines": {
         "vscode": "^1.90.0"
@@ -38,6 +38,65 @@
                 "title": "Toggle Dodge List"
             }
         ],
+        "menus": {
+            "view/item/context": [
+                {
+                    "command": "vscode.open",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation"
+                },
+                {
+                    "command": "dodgeExplorer.refresh",
+                    "when": "view == dodgeExplorer",
+                    "group": "navigation"
+                },
+                {
+                    "command": "explorer.newFile",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@1"
+                },
+                {
+                    "command": "explorer.newFolder",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@1"
+                },
+                {
+                    "command": "explorer.rename",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@2"
+                },
+                {
+                    "command": "explorer.delete",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@2"
+                },
+                {
+                    "command": "explorer.copy",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@3"
+                },
+                {
+                    "command": "explorer.cut",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@3"
+                },
+                {
+                    "command": "explorer.paste",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@3"
+                },
+                {
+                    "command": "explorer.copyPath",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@4"
+                },
+                {
+                    "command": "revealFileInOS",
+                    "when": "view == dodgeExplorer && resourceUri",
+                    "group": "navigation@4"
+                }
+            ]
+        },
         "configuration": {
             "properties": {
                 "explorerDodgeList.enabled": {
